@@ -101,6 +101,8 @@ bool initialize(HMODULE hModule){
 
         auto capturePipe = streamer::createBuffer();
         if(!capturePipe.empty()) {
+            std::cout << "pipe name: " << capturePipe << "\n";
+
             util::spawnDetachedProcess(R"(D:\Projects\GolandProjects\cocbot)", R"(D:\Projects\GolandProjects\cocbot\sv2.exe)", anus::Base64::Encode(instName) + " " + instAddr + " " + capturePipe);
         } else {
             std::cout << "capturePipe.empty()\n";
