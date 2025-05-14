@@ -5,6 +5,7 @@
 #include <iostream>
 #include <thread>
 #include <string>
+#include <chrono>
 #include "streamer.h"
 #include "../converter/converter.h"
 
@@ -36,7 +37,7 @@ HRESULT streamer::d3d11Present1(IDXGISwapChain *t, UINT SyncInterval, UINT Flags
 }
 
 std::string streamer::createBuffer() {
-    std::string name = "Global\\llscapture" + std::to_string((long long) &desc); //rAndom
+    std::string name = "Global\\llscapture" + std::to_string(duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()); //unique
 
     auto hMapFile = CreateFileMappingA(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sizeof(SharedVideoBuffer), name.c_str());
     if(hMapFile) {
