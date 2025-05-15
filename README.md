@@ -9,6 +9,7 @@
 - BlueStacks version **5.14.0**
 - DirectX screen rendering enabled in BlueStacks
 - Programmatic UI rendering enabled in BlueStacks
+- Both HD-Player and client started as Administrator to access Global pipe namespace
 
 ## Build Instructions
 
